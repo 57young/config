@@ -1,0 +1,209 @@
+{
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "editor.fontSize": 17,
+  // "editor.lineHeight": 0,
+  "editor.lineNumbers": "relative",
+  "files.autoSave": "onFocusChange",
+  "cmake.showConfigureWithDebuggerNotification": false,
+  "editor.formatOnType": true,
+  "C_Cpp.formatting": "vcFormat",
+  "terminal.integrated.fontSize": 18,
+  "clangd.detectExtensionConflicts": false,
+  "editor.fontFamily": "'CaskaydiaMono Nerd Font'",
+  "editor.tabSize": 2,
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<leader>",
+        "d"
+      ],
+      "after": [
+        "d",
+        "d"
+      ]
+    },
+    {
+      "before": [
+        "<C-n>"
+      ],
+      "commands": [
+        ":nohl"
+      ]
+    },
+    {
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "lineBreakInsert"
+      ],
+      "silent": true
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOCFILE%"
+      ]
+    },
+    {
+      "name": "latexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-pdf",
+        "-outdir=%OUTDIR%",
+        "%DOCFILE%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex",
+      "tools": [
+        "xelatex"
+      ]
+    },
+    {
+      "name": "xe->bib->xe->xe",
+      "tools": [
+        "xelatex",
+        "bibtex",
+        "xelatex",
+        "xelatex"
+      ]
+    }
+  ],
+  "latex-workshop.view.pdf.viewer": "external",
+  "latex-workshop.view.pdf.external.command": {
+    "command": "C:/Path/To/SumatraPDF.exe",
+    "args": [
+      "%PDF%"
+    ]
+  },
+  "markmap.customCSS": "e:/markmap/markmap-styles.css",
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+  "markdown-preview-enhanced.codeBlockTheme": "solarized-light.css",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#b57614",
+    "statusBar.noFolderBackground": "#b57614",
+    "statusBar.debuggingBackground": "#b57614",
+    "statusBar.foreground": "#ededed",
+    "statusBar.debuggingForeground": "#ededed"
+  },
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": [
+    "#b57614",
+    "#ededed"
+  ],
+  "vim.statusBarColors.insert": "#8f3f71",
+  "vim.statusBarColors.visual": "#fb4934",
+  "vim.statusBarColors.visualline": "#fb4934",
+  "vim.statusBarColors.visualblock": "#5f0000",
+  "vim.statusBarColors.replace": "#ebdbb2",
+  "vim.statusBarColors.commandlineinprogress": "#af3a03",
+  "vim.statusBarColors.searchinprogressmode": "#689B5C",
+  "vim.statusBarColors.easymotionmode": "#076628",
+  "vim.statusBarColors.easymotioninputmode": "#504945",
+  "vim.statusBarColors.surroundinputmode": "#8ec07c",
+  "editor.minimap.enabled": false,
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "zig": "zig run",
+    "cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "python -u",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket",
+    "scheme": "racket",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runghc",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "sml": "cd $dir && sml $fileName",
+    "mojo": "mojo run",
+    "erlang": "escript",
+    "spwn": "spwn build",
+    "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+    "gleam": "gleam run -m $fileNameWithoutExt"
+  },
+  "editor.formatOnSave": true,
+  "animations.Install-Method": "Apc Customize UI++",
+  "apc.imports": [
+    "file:///c:/Users/31640/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
+  ],
+  "animations.CursorAnimation": true,
+}
