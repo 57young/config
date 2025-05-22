@@ -1,12 +1,12 @@
 ---
 Language: Cpp
 AccessModifierOffset: -2
-AlignAfterOpenBracket: Align # 修改点
+AlignAfterOpenBracket: Align
 AlignArrayOfStructures: Left
 AlignConsecutiveAssignments:
   Enabled: true
   AcrossEmptyLines: false
-  AcrossComments: false
+  AcrossComments: true
   AlignCompound: false
   AlignFunctionDeclarations: false
   AlignFunctionPointers: false
@@ -23,17 +23,17 @@ AlignConsecutiveDeclarations:
   Enabled: true
   AcrossEmptyLines: false
   AcrossComments: true
-  AlignCompound: false
+  AlignCompound: true
   AlignFunctionDeclarations: true
-  AlignFunctionPointers: false
+  AlignFunctionPointers: true
   PadOperators: true
 AlignConsecutiveMacros:
   Enabled: true
   AcrossEmptyLines: true
   AcrossComments: true
-  AlignCompound: false
+  AlignCompound: true
   AlignFunctionDeclarations: true
-  AlignFunctionPointers: false
+  AlignFunctionPointers: true
   PadOperators: true
 AlignConsecutiveShortCaseStatements:
   Enabled: false
@@ -69,7 +69,7 @@ AlignEscapedNewlines: Right
 AlignOperands: Align
 AlignTrailingComments:
   Kind: Always
-  OverEmptyLines: 0
+  OverEmptyLines: 2
 AllowAllArgumentsOnNextLine: true
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowBreakBeforeNoexceptSpecifier: Never
@@ -165,7 +165,7 @@ IndentCaseLabels: true
 IndentExportBlock: true
 IndentExternBlock: AfterExternBlock
 IndentGotoLabels: true
-IndentPPDirectives: None
+IndentPPDirectives: AfterHash
 IndentRequiresClause: true
 IndentWidth: 2
 IndentWrappedFunctionNames: false
@@ -211,7 +211,7 @@ PenaltyBreakTemplateDeclaration: 10
 PenaltyExcessCharacter: 1000000
 PenaltyIndentedWhitespace: 0
 PenaltyReturnTypeOnItsOwnLine: 1000 # 修改点
-PointerAlignment: Left
+PointerAlignment: Right
 PPIndentWidth: -1
 QualifierAlignment: Leave
 ReferenceAlignment: Pointer

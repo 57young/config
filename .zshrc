@@ -1,34 +1,9 @@
-# 1. Shell options
-set -o vi
-set -o noclobber
-# setopt PUSHD_MINUS
-
-# 2. Aliases
-alias a=alias
-# alias d=date
-alias del='fc -s ls=rm'
-alias h=history
-alias r='fc -s'
-alias grep='grep ---color=auao -E'
-alias deepseek='python3 ${HOME}/Program/deepseek/deepseek-chat.py'
-alias hd='hexdump -C'
-alias od='od -Ax -tx1z'
-alias vi='vim -C'
-alias d='dirs -v'
-alias p=pushd
-alias ldot='ls -d .??*'
-alias lla='ls -la'
-# alias cp='cp -i'
-
-# umask
-umask 077
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#  _____  ____    _   _   ____     ____
+# |__  / / ___|  | | | | |  _ \   / ___|   _   _  ___  _   _ _ __   __ _
+#   / /  \___ \  | |_| | | |_) | | |      | | | |/ _ \| | | | '_ \ / _` |
+#  / /_   ___) | |  _  | |  _ <  | |___   | |_| | (_) | |_| | | | | (_| |
+# /____| |____/  |_| |_| |_| \_\  \____|   \__, |\___/ \__,_|_| |_|\__, |
+#                                          |___/                   |___/
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
@@ -40,7 +15,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="af-magic"
+# ZSH_THEME="muse"
+# ZSH_THEME="sunrise"
+# ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -103,23 +81,17 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git
-  # zsh-vi-mode
-  zsh-autosuggestions
-  zsh-completions
-  colored-man-pages
-  # colorize
-  # zsh-color-logging
-  jsontools
-  zsh-syntax-highlighting
+	git
+	zsh-autosuggestions
+	zsh-syntax-highlighting
+	colorize
+	zsh-completions
+	colored-man-pages
 )
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# custom escape key with zsh-vi-mode plugins
-# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -147,174 +119,54 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/relyon/powerlevel10k/powerlevel10k.zsh-theme
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# 1. Shell options
+set -o vi
+set -o noclobber
+# setopt PUSHD_MINUS
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# 2. Aliases
+alias a=alias
+# alias d=date
+alias del='fc -s ls=rm'
+alias h=history
+alias r='fc -s'
+alias grep='grep --color=auto -E'
+alias deepseek='python3 ${HOME}/Program/deepseek/deepseek-chat.py'
+alias hd='hexdump -C'
+alias od='od -Ax -tx1z'
+alias vi='vim -C'
+alias d='dirs -v'
+alias p=pushd
+alias ls='ls -F --color=auto'
+alias ldot='ls -d .??*'
+alias lla='ls -la'
+# alias cp='cp -i'
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+# umask
+umask 077
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
-
-# if [ $SHELL != "/bin/zsh" ]; then
-# shopt -s histappend
-# fi
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-SAVEHIST=2000
-# HISTFILESIZE=2000
-
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-# if [ $SHELL != "/bin/zsh" ]; then
-#     shopt -s checkwinsize
-# fi
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls -F --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto -E'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-# if ! shopt -oq posix; then
-#   if [ -f /usr/share/bash-completion/bash_completion ]; then
-#     . /usr/share/bash-completion/bash_completion
-#   elif [ -f /etc/bash_completion ]; then
-#     . /etc/bash_completion
-#   fi
-# fi
-
+# Created by `pipx` on 2025-05-07 10:07:22
+export PATH="$PATH:/home/young/.local/bin"
 
 # Set up fzf key bindings and fuzzy completion
-# source <(fzf --zsh)
+source <(fzf --zsh)
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_CTRL_R_OPTS="--min-height 20"
-# export FZF_DEFAULT_OPTS="--height 40% --layout=reverse"
 
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
-typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
 
-# color vivid
-# export LS_COLORS="$(vivid generate snazzy)"
-# source /home/young/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# identify wezterm
+if [[ -n "$TERM_PROGRAM" && "$TERM_PROGRAM" == "WezTerm" ]]; then
+  export TERM=wezterm
+  export COLORTERM=truecolor
+fi
+# export PATH="$HOME/.npm-global/bin:$PATH"
+# export PATH="$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin"
+export PATH="$PATH:/usr/bin:/usr/local/bin"
+# eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$PATH:/home/young/.local/share/gem/ruby/3.4.0/bin/"
+export PATH="$PATH:/home/young/.npm-global/bin/prettier"
 
-# animal=$(ls /usr/share/cowsay/cows | sed 's/\.cow//' | shuf -n 1)
-# eval "fortune | cowsay -f $animal | lolcat"
-
-# neofetch
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-# Created by `pipx` on 2025-03-23 11:27:30
-export PATH="$PATH:/home/young/.local/bin"
-export NPC_HOME=/home/young/Program/ysyx-workbench/npc
-
-# yazi configuration
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
-
-# riscv toolchains path
-export PATH=/opt/riscv/bin:$PATH
-export RISCV=/opt/riscv
+# figlet "Hello young"
